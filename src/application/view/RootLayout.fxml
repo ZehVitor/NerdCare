@@ -88,7 +88,7 @@
                   </VBox>
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="662.0" prefWidth="726.0" />
+        <ScrollPane fx:id="scrollPane" prefHeight="662.0" prefWidth="726.0" />
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">

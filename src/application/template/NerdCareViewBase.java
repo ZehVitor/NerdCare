@@ -3,6 +3,7 @@ package application.template;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -12,6 +13,7 @@ public abstract class NerdCareViewBase extends Application {
 
 	private static Stage stage;
 	private BorderPane root = new BorderPane();
+	private static ScrollPane scrollPane;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -35,17 +37,13 @@ public abstract class NerdCareViewBase extends Application {
 		}
 	}
 	
-	public void listener(){
-		stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent t) {
-                t.consume();
-                persistence.dominio.Banco.closeInstance();
-                stage.close();
-                System.exit(0);
-            }
-        });
-	}
-	
 	public abstract void startEspecifico(Stage primaryStage);
+
+	public ScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+	public void setScrollPane(ScrollPane scrollPane) {
+		NerdCareViewBase.scrollPane = scrollPane;
+	}
 }

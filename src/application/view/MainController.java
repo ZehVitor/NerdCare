@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -18,6 +19,9 @@ public class MainController extends NerdCareViewBase {
 
 	private static Stage stage;
 	private BorderPane root = new BorderPane();
+	
+	@FXML
+	private ScrollPane scrollPane = new ScrollPane();
 	
 	@Override
 	public void startEspecifico(Stage primaryStage) {
@@ -41,10 +45,19 @@ public class MainController extends NerdCareViewBase {
 	}
 	
 	@FXML
+	public void initialize(){
+		setScrollPane(this.scrollPane);
+	}
+	
+	@FXML
 	public void handleConsultar(){
 		try {
-			new PesquisaController().start(new Stage());
-//			MainController.stage.close();
+//			new PesquisaController().start(stage);
+			FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/Pesquisa.fxml"));
+            ScrollPane pageView = (ScrollPane) loader.load();
+            
+			scrollPane.setContent(pageView);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,7 +66,11 @@ public class MainController extends NerdCareViewBase {
 	@FXML
 	public void handleCadastrar(){
 		try {
-			new CadastroController().start(stage);
+			FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/Cadastro.fxml"));
+            AnchorPane pageView = (AnchorPane) loader.load();
+            
+			scrollPane.setContent(pageView);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -2,9 +2,11 @@ package application.view;
 
 import application.Main;
 import application.template.NerdCareViewBase;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -30,6 +32,20 @@ public class PesquisaController extends NerdCareViewBase {
 			
             PesquisaController.stage.show();
 		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void handlePerfilCompleto(){
+		try {
+//			new PerfilController().start(new Stage());
+			FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/Perfil.fxml"));
+            TabPane pageView = (TabPane) loader.load();
+            ScrollPane pane = getScrollPane(); 
+			pane.setContent(pageView);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -4,6 +4,7 @@ import application.Main;
 import application.template.NerdCareViewBase;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -24,7 +25,7 @@ public class PerfilController extends NerdCareViewBase {
 			
 			FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/Perfil.fxml"));
-            AnchorPane pageView = (AnchorPane) loader.load();
+            TabPane pageView = (TabPane) loader.load();
             root.setCenter(pageView);
 			
             PerfilController.stage.show();

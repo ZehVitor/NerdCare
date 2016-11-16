@@ -26,8 +26,6 @@ public class CadastroController extends NerdCareViewBase {
             AnchorPane pageView = (AnchorPane) loader.load();
             BorderPane test = (BorderPane) primaryStage.getScene().getRoot();
 //            root.setCenter(pageView);
-            pageView.setMaxWidth(100);
-            pageView.setMaxHeight(100);
             
             Object t = test.getChildren().get(0);
             test.setRight(pageView);
