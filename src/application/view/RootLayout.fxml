@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -17,7 +24,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
+<VBox prefHeight="600.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -60,14 +67,14 @@
     </MenuBar>
     <SplitPane dividerPositions="0.1870824053452116" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="NEVER">
       <items>
-        <AnchorPane>
+        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="168.0">
           <children>
             <Label alignment="CENTER" layoutX="24.0" layoutY="5.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="NerdCare" textAlignment="CENTER" wrapText="false">
               <font>
                 <Font name="System Bold" size="18.0" fx:id="x1" />
               </font>
             </Label>
-                  <VBox layoutX="8.0" layoutY="33.0">
+                  <VBox layoutX="8.0" layoutY="33.0" maxWidth="149.0" minWidth="-Infinity" prefWidth="149.0">
                      <children>
                         <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handleConsultar" prefHeight="26.0" prefWidth="149.0" text="Consultar Pacientes">
                            <cursor>
