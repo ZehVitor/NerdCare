@@ -16,18 +16,18 @@ public abstract class NerdCareViewBase extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Scene scene = new Scene(root,400,400);
-			try {
-				scene.getStylesheets().add(getClass().getResource("css/style.css").toExternalForm());	
-			} catch (Exception e) {
-				scene.getStylesheets().add(getClass().getResource("../css/style.css").toExternalForm());
-			}
+//			Scene scene = new Scene(root,400,400);
+//			try {
+//				scene.getStylesheets().add(getClass().getResource("css/style.css").toExternalForm());	
+//			} catch (Exception e) {
+//				scene.getStylesheets().add(getClass().getResource("../css/style.css").toExternalForm());
+//			}
 			
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
+//			primaryStage.setScene(scene);
+//			primaryStage.setResizable(false);
 
 			NerdCareViewBase.stage = primaryStage;
-			listener();
+//			listener();
 			
 			startEspecifico(NerdCareViewBase.stage);
 		} catch (Exception e) {

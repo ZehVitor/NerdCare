@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="114.0" fitWidth="105.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Resources/person.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="129.0" layoutY="46.0" prefHeight="346.0" prefWidth="557.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="0.0" prefWidth="144.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="0.0" prefWidth="389.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <children>
+            <Label text="Nome:" />
+            <Label text="Telefone:" GridPane.rowIndex="1" />
+            <Label text="E-mail:" GridPane.rowIndex="2" />
+            <Label text="Endereço:" GridPane.rowIndex="3" />
+            <Label text="Altura (cm):" GridPane.rowIndex="4" />
+            <Label text="Peso:" GridPane.rowIndex="5" />
+            <Label text="Fumante:" GridPane.rowIndex="6" />
+            <Label text="Pressao sanguinea:" GridPane.rowIndex="7" />
+            <Label text="Historico familiar:" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Sim" />
+                  <RadioButton mnemonicParsing="false" text="Nao" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </HBox>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Adicionar alergia" GridPane.rowIndex="9" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Medicamento">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </RadioButton>
+                  <TextField prefHeight="26.0" prefWidth="276.0" />
+               </children>
+            </HBox>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Doença cronica" GridPane.rowIndex="10" />
+         </children>
+      </GridPane>
+      <Label layoutX="14.0" layoutY="6.0" text="Cadastro">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TableView layoutX="297.0" layoutY="370.0" prefHeight="142.0" prefWidth="389.0">
+        <columns>
+          <TableColumn minWidth="-1.0" prefWidth="173.0" text="Alergias" />
+            <TableColumn minWidth="-1.0" prefWidth="214.0" text="Doenças Cronicas" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button contentDisplay="CENTER" layoutX="141.0" layoutY="392.0" minWidth="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Remover" />
+      <Button layoutX="14.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Foto" />
+      <Button layoutX="537.0" layoutY="540.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Adicionar Cadastro" />
+   </children>
+</AnchorPane>

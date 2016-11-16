@@ -1,0 +1,36 @@
+package application.view;
+
+import application.Main;
+import application.template.NerdCareViewBase;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class PesquisaController extends NerdCareViewBase {
+
+	private static Stage stage;
+	private BorderPane root = new BorderPane();
+	
+	@Override
+	public void startEspecifico(Stage primaryStage) {
+		try {
+			Scene scene = new Scene(root);
+//			scene.getStylesheets().add(getClass().getResource("../css/style.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Cadastro de pacientes");
+			PesquisaController.stage = primaryStage;
+			
+			FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/Pesquisa.fxml"));
+            ScrollPane pageView = (ScrollPane) loader.load();
+            root.setCenter(pageView);
+			
+            PesquisaController.stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

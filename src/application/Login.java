@@ -3,6 +3,8 @@ package application;
 import javax.swing.JOptionPane;
 
 import application.template.NerdCareViewBase;
+import application.view.CadastroController;
+import application.view.MainController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -119,7 +121,7 @@ public class Login extends NerdCareViewBase {
 			@Override
 			public void handle(ActionEvent event) {
 				try {
-//					new <tela>Controller().start(new Stage()); // abri uma tela
+					new CadastroController().start(new Stage());
 					Login.stage.close();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -169,7 +171,7 @@ public class Login extends NerdCareViewBase {
 		if (user != null && user.getLogin().equalsIgnoreCase(login) && user.getSenha().equals(password)) {
 			try {
 				Banco.setCurrentUser(user);
-//				new <tela>View().start(new Stage()); abrir uma tela
+				new MainController().start(new Stage());
 				Login.stage.close();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -191,8 +193,6 @@ public class Login extends NerdCareViewBase {
 			initComponents();
 			
 			Scene scene = new Scene(anchorPane);
-			scene.getStylesheets().add(getClass().getResource("css/style.css").toExternalForm());
-			anchorPane.getStyleClass().add("background");
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Login - NerdCare");
 			primaryStage.show();
