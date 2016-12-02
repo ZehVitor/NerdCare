@@ -1,0 +1,9 @@
+.Vmenu .button {
+    -fx-background-color: #28559c;  
+}
+.menu-button .menu-item:hover {
+    -fx-background-color: #3b6bb7 ;
+}
+.menu-button .menu-item .label {
+    -fx-text-fill: white ;
+}

@@ -1,51 +1,65 @@
 .background {
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: #7c7c7c;
 }
+
 .label {
-    -fx-font-size: 11pt;
+    /*-fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Semibold";*/
+    -fx-text-fill: white;
+    /*-fx-opacity: 1;*/
+}
+
+.scrollPane > .viewport {
+	-fx-background-color: #7c7c7c;
+	-fx-control-inner-background: transparent;
+}
+
+/*.nerdCare {
+    -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: white;
     -fx-opacity: 1;
-}
-.bottombar {
+    -fx-background-color: red;
+}*/
+
+.Vmenu, .toggle-button{
 	
     -fx-border-style: none;
     -fx-border-radius: 6;
-    -fx-background-color: #1d1d1d;
-    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-    -fx-font-size: 12pt;
+    -fx-background-color: #7c7c7c;
     -fx-text-fill: #d8d8d8;
-    /*-fx-background-insets: 0 0 0 0, 0, 1, 2;*/
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
-.button:hover {
+.Vmenu, .toggle-button:hover {
     -fx-background-color: #3a3a3a;
+    -fx-text-fill: white;
 }
 
-.button:pressed, .button:default:hover:pressed {
+.toggle-button:pressed, .toggle-button:default:hover:pressed {
   -fx-background-color: white;
   -fx-text-fill: #1d1d1d;
 }
 
-.button:focused {
-    -fx-border-color: white, white;
+.toggle-button:selected:focused {
+    /*-fx-border-color: white, white;
     -fx-border-width: 1, 1;
-    -fx-border-style: solid, segments(1, 1);
+    -fx-border-style: solid, segments(1, 1);*/
+    -fx-background-color: #eee5e9;
+    -fx-text-fill: black;
     -fx-border-radius: 0, 3;
     -fx-border-insets: 1 1 1 1, 0;
 }
 
-.button:disabled, .button:default:disabled {
+/*.button:disabled, .button:default:disabled {
     -fx-opacity: 0.4;
     -fx-background-color: #1d1d1d;
     -fx-text-fill: white;
-}
+}*/
 
-.button:default {
+.toggle-button:default {
+	-fx-background-color: #eee5e9;
+    -fx-text-fill: black;
     -fx-background-color: -fx-focus-color;
     -fx-text-fill: #ffffff;
-}
-
-.button:default:hover {
-    -fx-background-color: derive(-fx-focus-color,30%);
 }

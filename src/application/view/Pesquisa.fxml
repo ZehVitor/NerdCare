@@ -6,9 +6,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PesquisaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PesquisaController">
    <children>
-      <HBox layoutX="14.0" layoutY="14.0" prefHeight="133.0" prefWidth="706.0" AnchorPane.topAnchor="40.0">
+      <HBox layoutX="14.0" layoutY="14.0" prefHeight="133.0" prefWidth="710.0" AnchorPane.topAnchor="40.0">
          <children>
             <ImageView fitHeight="91.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
                <image>
@@ -39,7 +39,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="14.0" layoutY="4.0" prefHeight="33.0" prefWidth="708.0">
+      <HBox layoutX="14.0" layoutY="4.0" prefHeight="33.0" prefWidth="735.0">
          <children>
             <Label text="Pesquisar: ">
                <HBox.margin>
@@ -48,17 +48,17 @@
             </Label>
             <TextField prefHeight="26.0" prefWidth="318.0">
                <HBox.margin>
-                  <Insets />
+                  <Insets top="3.0" />
                </HBox.margin>
             </TextField>
             <ChoiceBox prefWidth="150.0">
                <HBox.margin>
-                  <Insets left="5.0" />
+                  <Insets left="5.0" top="2.0" />
                </HBox.margin>
             </ChoiceBox>
-            <Button mnemonicParsing="false" text="Adicionar Paciente">
+            <Button mnemonicParsing="false" onAction="#handleCadastrar" text="Adicionar Paciente">
                <HBox.margin>
-                  <Insets left="23.0" />
+                  <Insets left="5.0" top="2.0" />
                </HBox.margin>
             </Button>
          </children>

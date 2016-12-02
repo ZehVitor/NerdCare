@@ -16,6 +16,9 @@ public class PesquisaController extends NerdCareViewBase {
 	private static Stage stage;
 	private BorderPane root = new BorderPane();
 	
+	@FXML
+	private ScrollPane scrollPane = new ScrollPane();
+	
 	@Override
 	public void startEspecifico(Stage primaryStage) {
 		try {
@@ -37,6 +40,11 @@ public class PesquisaController extends NerdCareViewBase {
 	}
 	
 	@FXML
+	public void initialize(){
+		setScrollPane(this.scrollPane);
+	}
+	
+	@FXML
 	public void handlePerfilCompleto(){
 		try {
 //			new PerfilController().start(new Stage());
@@ -45,6 +53,19 @@ public class PesquisaController extends NerdCareViewBase {
             TabPane pageView = (TabPane) loader.load();
             ScrollPane pane = getScrollPane(); 
 			pane.setContent(pageView);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	public void handleCadastrar(){
+		try {
+			FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/Cadastro.fxml"));
+            AnchorPane pageView = (AnchorPane) loader.load();
+            
+			scrollPane.setContent(pageView);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="cadastro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="cadastro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="755.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="114.0" fitWidth="105.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -58,8 +58,8 @@
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Sim" />
-                  <RadioButton mnemonicParsing="false" text="Nao" />
+                  <RadioButton mnemonicParsing="false" text="Sim" textFill="WHITE" />
+                  <RadioButton mnemonicParsing="false" text="Nao" textFill="WHITE" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -71,7 +71,7 @@
             <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Adicionar alergia" GridPane.rowIndex="9" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Medicamento">
+                  <RadioButton mnemonicParsing="false" text="Medicamento" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -96,8 +96,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button contentDisplay="CENTER" layoutX="141.0" layoutY="392.0" minWidth="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Remover" />
-      <Button layoutX="14.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Foto" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="392.0" minWidth="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Remover" />
+      <Button alignment="CENTER" layoutX="14.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Foto" />
       <Button layoutX="537.0" layoutY="540.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Adicionar Cadastro" />
    </children>
 </AnchorPane>

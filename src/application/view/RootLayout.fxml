@@ -24,95 +24,35 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
+<VBox id="rootView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="930.0" styleClass="background" stylesheets="@../css/rootStyle.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <SplitPane dividerPositions="0.1870824053452116" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="NEVER">
+    <MenuBar fx:id="topMenu" style="-fx-background-color: #383d3b;" VBox.vgrow="NEVER" />
+    <SplitPane id="splitPane" dividerPositions="0.1870824053452116" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="922.0" style="-fx-border-color: #7c7c7c;" styleClass="background" VBox.vgrow="NEVER">
       <items>
-        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="168.0">
+        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="168.0" styleClass="background">
           <children>
-            <Label alignment="CENTER" layoutX="24.0" layoutY="5.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="NerdCare" textAlignment="CENTER" wrapText="false">
+            <Label id="nerdCare" alignment="CENTER" layoutX="24.0" layoutY="5.0" minWidth="60.0" prefWidth="-1.0" style="-fx-text-fill: #52dee5; -fx-text-alignment: center; -fx-font-size: 22; -fx-font-weight: bold;" text="NerdCare" textAlignment="CENTER" textFill="RED" wrapText="false">
               <font>
                 <Font name="System Bold" size="18.0" fx:id="x1" />
               </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
             </Label>
-                  <VBox layoutX="8.0" layoutY="33.0" maxWidth="149.0" minWidth="-Infinity" prefWidth="149.0">
+                  <VBox id="Vmenu" layoutX="-1.0" layoutY="33.0" maxWidth="168.0" minWidth="-Infinity" prefHeight="122.0" prefWidth="168.0" spacing="3.0" styleClass="background" AnchorPane.leftAnchor="-1.0">
                      <children>
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handleConsultar" prefHeight="26.0" prefWidth="149.0" text="Consultar Pacientes">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handleCadastrar" prefHeight="26.0" prefWidth="149.0" text="Cadastrar Paciente">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Pacientes do dia">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
+                        <ToggleButton id="toggle-button" mnemonicParsing="false" onAction="#handleConsultar" prefWidth="150.0" text="Consultar Paciente" />
+                        <ToggleButton id=".toggle-button" mnemonicParsing="false" onAction="#handleCadastrar" prefWidth="150.0" text="Cadastrar Paciente" />
+                        <ToggleButton id="toggle-button" mnemonicParsing="false" prefWidth="150.0" text="Historico do Dia" />
                      </children>
+                     <padding>
+                        <Insets left="7.0" top="15.0" />
+                     </padding>
                   </VBox>
           </children>
         </AnchorPane>
-        <ScrollPane fx:id="scrollPane" prefHeight="662.0" prefWidth="726.0" />
+        <ScrollPane id="scrollPane" fx:id="scrollPane" prefHeight="662.0" prefWidth="752.0" styleClass="scrollPane" />
       </items>
     </SplitPane>
-    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
-      <children>
-        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
-          <font>
-            <Font size="11.0" fx:id="x3" />
-          </font>
-          <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-          </textFill>
-        </Label>
-        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-      </children>
-      <padding>
-        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-      </padding>
-    </HBox>
   </children>
 </VBox>

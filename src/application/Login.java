@@ -53,18 +53,18 @@ public class Login extends NerdCareViewBase {
 	private void initComponents() {
 		WIDTH = 400;
 		FAREWELL_MESSAGE = "Bye!";
-		FAILED_LOGIN_MESSAGE = "Login ou Senha inválidos!";
+		FAILED_LOGIN_MESSAGE = "Login ou Senha invï¿½lidos!";
 		
 		persistence.dominio.Banco.getInstance();
 		
-//		------------------------------------Inserts para Criação do banco--------------------------
+//		------------------------------------Inserts para Criaï¿½ï¿½o do banco--------------------------
 //		Usuario u = new Usuario();
 // 		GenericDAO dao = new GenericDAO();
-// 		u.setNome("JVitor");
-// 		u.setEmail("ze@mail.com");
-// 		u.setLogin("jv");
-//  	u.setSenha("123");
-//		
+// 		u.setNome("Lautter");
+// 		u.setEmail("lautter@mail.com");
+// 		u.setLogin("edye");
+// 		u.setSenha("123");
+		
 // 		dao.inserir(u);
  		
 		anchorPane = new AnchorPane();

@@ -15,6 +15,7 @@ public abstract class NerdCareViewBase extends Application {
 	private BorderPane root = new BorderPane();
 	private static ScrollPane scrollPane;
 	
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -26,7 +27,7 @@ public abstract class NerdCareViewBase extends Application {
 //			}
 			
 //			primaryStage.setScene(scene);
-//			primaryStage.setResizable(false);
+			primaryStage.setResizable(false);
 
 			NerdCareViewBase.stage = primaryStage;
 //			listener();
