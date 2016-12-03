@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import application.template.NerdCareViewBase;
 import application.view.CadastroController;
 import application.view.MainController;
+import command.InsertCommand;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,8 +22,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import persistence.dao.GenericDAO;
 import persistence.dominio.Banco;
+import persistence.dominio.Doenca;
+import persistence.dominio.Paciente;
 import persistence.dominio.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -39,7 +43,6 @@ public class Login extends NerdCareViewBase {
 	private PasswordField passwordInputBox;
 	private Button entrarButton;
 	private Button sairButton;
-	private Button cadastrarButton;
 	
 	private double WIDTH;
 	
@@ -53,19 +56,57 @@ public class Login extends NerdCareViewBase {
 	private void initComponents() {
 		WIDTH = 400;
 		FAREWELL_MESSAGE = "Bye!";
-		FAILED_LOGIN_MESSAGE = "Login ou Senha invï¿½lidos!";
+		FAILED_LOGIN_MESSAGE = "Login ou Senha inválidos!";
 		
 		persistence.dominio.Banco.getInstance();
 		
-//		------------------------------------Inserts para Criaï¿½ï¿½o do banco--------------------------
+//		------------------------------------Inserts para Criação do banco--------------------------
 //		Usuario u = new Usuario();
+//		Paciente p = new Paciente();
+//		Doenca d = new Doenca();
 // 		GenericDAO dao = new GenericDAO();
-// 		u.setNome("Lautter");
-// 		u.setEmail("lautter@mail.com");
-// 		u.setLogin("edye");
+// 		List<Paciente> listPacientes = new ArrayList<Paciente>();
+// 		List<Doenca> listDoencas = new ArrayList<Doenca>();
+ 		
+// 		d.setNome("Dengue");
+// 		d.setSintomas("febre; dor de cabeça; dor no corpo");
+// 		
+// 		p.setNome("Paciente Primario");
+// 		p.setAlergias("Lactose");
+// 		p.setAltura(100);
+// 		p.setEndereco("Rua teste");
+// 		p.setFumante(true);
+// 		p.setHistoricoFamiliar("Hepatite");
+// 		p.setPeso(80);
+// 		p.setPressaoSanguinea(120);
+// 		p.setTelefone("0800 888");
+// 		
+// 		u.setNome("Edye");
+// 		u.setEmail("Edye@mail.com");
+// 		u.setLogin("ed");
 // 		u.setSenha("123");
-		
 // 		dao.inserir(u);
+// 		dao.inserir(p);
+// 		dao.inserir(d);
+//      ------------------ // ---------------------
+// 		try {
+//			u = (Usuario) dao.findById(4, Usuario.class);
+//			p = (Paciente) dao.findById(4, Paciente.class);
+//			d = (Doenca) dao.findById(1, Doenca.class);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+// 		listPacientes.add(p);
+// 		listDoencas.add(d);
+// 		
+// 		p.setUsuario(u);
+// 		p.setDoencas(listDoencas);
+// 		u.setPacientes(listPacientes);
+// 		d.setPacientes(listPacientes);
+//
+// 		dao.alterar(d);
+// 		dao.alterar(p);
+// 		dao.alterar(u);
  		
 		anchorPane = new AnchorPane();
 		anchorPane.setPrefSize(WIDTH, 300);
@@ -74,9 +115,8 @@ public class Login extends NerdCareViewBase {
 		passwordInputBox = new PasswordField();
 		entrarButton = new Button("Entrar");
 		sairButton = new Button("Sair");
-		cadastrarButton = new Button("Cadastrar");
 		
-		anchorPane.getChildren().addAll(loginInputBox, passwordInputBox, entrarButton, sairButton, cadastrarButton);
+		anchorPane.getChildren().addAll(loginInputBox, passwordInputBox, entrarButton, sairButton);
 	}
 	
 	private void initLayout(){
@@ -97,9 +137,6 @@ public class Login extends NerdCareViewBase {
 
 		sairButton.setLayoutX(middleCordinates(sairButton.getWidth(), WIDTH));
 		sairButton.setLayoutY(200);
-		
-		cadastrarButton.setLayoutX(middleCordinates(cadastrarButton.getWidth(), WIDTH));
-		cadastrarButton.setLayoutY(250);
 	}
 	
 	private void initListeners(){
@@ -114,18 +151,6 @@ public class Login extends NerdCareViewBase {
 			@Override
 			public void handle(ActionEvent event) {
 				fecharAplicacao();
-			}
-		});
-		
-		this.cadastrarButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				try {
-					new CadastroController().start(new Stage());
-					Login.stage.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 		});
 		
