@@ -15,6 +15,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -39,7 +40,8 @@ public class Usuario implements Serializable {
 	private String login;
 	private String senha;
 	
-	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name = "usuario")
 	private List<Paciente> pacientes;
 	
 	public Usuario(){

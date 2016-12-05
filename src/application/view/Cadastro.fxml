@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="cadastro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="755.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.CadastroController">
    <children>
-      <ImageView fitHeight="114.0" fitWidth="105.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageFoto" fitHeight="114.0" fitWidth="105.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Resources/person.png" />
+            <Image url="@../../Resources/person.png" />
          </image>
       </ImageView>
       <GridPane layoutX="129.0" layoutY="46.0" prefHeight="346.0" prefWidth="557.0">
@@ -39,27 +49,30 @@
          </padding>
          <children>
             <Label text="Nome:" />
-            <Label text="Telefone:" GridPane.rowIndex="1" />
+            <Label text="Idade:" GridPane.rowIndex="1" />
             <Label text="E-mail:" GridPane.rowIndex="2" />
-            <Label text="Endereço:" GridPane.rowIndex="3" />
+            <Label text="Sexo:" GridPane.rowIndex="3" />
             <Label text="Altura (cm):" GridPane.rowIndex="4" />
             <Label text="Peso:" GridPane.rowIndex="5" />
             <Label text="Fumante:" GridPane.rowIndex="6" />
             <Label text="Pressao sanguinea:" GridPane.rowIndex="7" />
             <Label text="Historico familiar:" GridPane.rowIndex="8" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="tfNome" GridPane.columnIndex="1" />
+            <TextField fx:id="tfIdade" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfEmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tfSexo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfAltura" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="tfPeso" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="tfPressaoSanguinea" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="tfHistoricoFamiliar" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <HBox fx:id="radioFumante" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Sim" textFill="WHITE" />
-                  <RadioButton mnemonicParsing="false" text="Nao" textFill="WHITE" />
+                  <RadioButton fx:id="radioFumanteSim" mnemonicParsing="false" text="Sim">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="radioFumanteNao" mnemonicParsing="false" text="Nao" toggleGroup="$group" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -68,18 +81,18 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Adicionar alergia" GridPane.rowIndex="9" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleAdcionarAlergia" prefHeight="26.0" prefWidth="149.0" text="Adicionar alergia" GridPane.rowIndex="9" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Medicamento" textFill="WHITE">
+                  <RadioButton mnemonicParsing="false" text="Medicamento">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </RadioButton>
-                  <TextField prefHeight="26.0" prefWidth="276.0" />
+                  <TextField fx:id="tfAlergias" prefHeight="26.0" prefWidth="276.0" />
                </children>
             </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Doença cronica" GridPane.rowIndex="10" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleDoencaCronica" prefHeight="26.0" prefWidth="149.0" text="Doença cronica" GridPane.rowIndex="10" />
          </children>
       </GridPane>
       <Label layoutX="14.0" layoutY="6.0" text="Cadastro">
@@ -96,8 +109,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="392.0" minWidth="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Remover" />
-      <Button alignment="CENTER" layoutX="14.0" layoutY="147.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Foto" />
-      <Button layoutX="537.0" layoutY="540.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Adicionar Cadastro" />
+      <Button contentDisplay="CENTER" layoutX="141.0" layoutY="392.0" minWidth="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Remover" />
+      <Button layoutX="8.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleAdicionarFoto" prefHeight="26.0" prefWidth="105.0" text="Foto" />
+      <Button layoutX="537.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleAdicionarPaciente" prefHeight="26.0" prefWidth="149.0" text="Adicionar Cadastro" />
    </children>
 </AnchorPane>

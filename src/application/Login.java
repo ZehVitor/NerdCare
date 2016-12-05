@@ -80,6 +80,8 @@ public class Login extends NerdCareViewBase {
 // 		p.setPeso(80);
 // 		p.setPressaoSanguinea(120);
 // 		p.setTelefone("0800 888");
+//		p.setIdade(18);
+//		p.setSexo('M');
 // 		
 // 		u.setNome("Edye");
 // 		u.setEmail("Edye@mail.com");

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import command.CrudCommand;
 import persistence.dominio.Banco;
 
 public class GenericDAO {
@@ -114,5 +115,13 @@ public class GenericDAO {
 	
 	private EntityManager getEntityManager(){
 		return Banco.getInstance();
+	}
+	
+	public void realizarCRUD(CrudCommand tipoCrud, Object entidade){
+		try {
+			tipoCrud.execute(getEntityManager(), entidade);	
+		} catch (Exception e) {
+			tipoCrud.undo(getEntityManager());
+		}
 	}
 }

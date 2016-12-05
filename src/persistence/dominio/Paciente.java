@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,8 +15,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.postgresql.jdbc2.EscapedFunctions;
 
 @Entity
 @Table(name="Paciente")
@@ -28,8 +32,8 @@ public class Paciente implements Serializable {
 	@Column(name="id_Paciente")
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name = "pacientes")
+	
+	@OneToMany(mappedBy="pacientes", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
 	private Usuario usuario;
 	
 	@ManyToMany
@@ -52,6 +56,9 @@ public class Paciente implements Serializable {
 	private double pressaoSanguinea;
 	private String historicoFamiliar;
 	private String alergias;
+	private char sexo;
+	private int idade;
+	private String fotoUrl;
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -117,18 +124,46 @@ public class Paciente implements Serializable {
 		return historicoFamiliar;
 	}
 	public void setHistoricoFamiliar(String historicoFamiliar) {
-		this.historicoFamiliar = historicoFamiliar;
+		if (this.historicoFamiliar == null || this.historicoFamiliar.isEmpty()) {
+			this.historicoFamiliar = historicoFamiliar;
+		}
+		else {
+			this.historicoFamiliar += "; " + historicoFamiliar;	
+		}
 	}
 	public String getAlergias() {
 		return alergias;
 	}
 	public void setAlergias(String alergias) {
-		this.alergias = alergias;
+		if (this.alergias == null || this.alergias.isEmpty()) {
+			this.alergias = alergias;
+		}
+		else {
+			this.alergias += "; " + alergias;
+		}
 	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public char getSexo() {
+		return sexo;
+	}
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+	public int getIdade() {
+		return idade;
+	}
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+	public String getFotoUrl() {
+		return fotoUrl;
+	}
+	public void setFotoUrl(String fotoUrl) {
+		this.fotoUrl = fotoUrl;
 	}
 }

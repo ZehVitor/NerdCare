@@ -55,7 +55,7 @@ public class MainController extends NerdCareViewBase {
 //			new PesquisaController().start(stage);
 			FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/Pesquisa.fxml"));
-            AnchorPane pageView = (AnchorPane) loader.load();
+            ScrollPane pageView = (ScrollPane) loader.load();
             
 			scrollPane.setContent(pageView);
 		} catch (Exception e) {
