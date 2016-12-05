@@ -124,10 +124,12 @@ public class CadastroController extends NerdCareViewBase {
 		this.pacienteAtual.setPressaoSanguinea(Double.parseDouble(this.tfPressaoSanguinea.getText()));
 		List<Paciente> listP = new ArrayList<Paciente>();
 		listP.add(this.pacienteAtual);
-//		Banco.getCurrentUser().setPacientes(listP);
-//		this.pacienteAtual.setUsuario(Banco.getCurrentUser());
+		this.pacienteAtual.setUsuario(Banco.getCurrentUser());
+		this.pacienteAtual.setFotoUrl(this.imageFoto.getImage().impl_getUrl());
 		
 		dao.inserir(this.pacienteAtual);
+		JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+		reset();
 	}
 	
 	@FXML
@@ -178,5 +180,19 @@ public class CadastroController extends NerdCareViewBase {
 		}
 		
 		return true;
+	}
+	
+	private void reset(){
+		this.imageFoto = new ImageView();
+		this.tfNome = new TextField();
+		this.tfIdade = new TextField();
+		this.tfEmail = new TextField();
+		this.tfSexo = new TextField();
+		this.tfAltura = new TextField();
+		this.radioFumanteSim = new RadioButton();
+		this.radioFumanteNao = new RadioButton();
+		this.tfPressaoSanguinea = new TextField();
+		this.tfHistoricoFamiliar = new TextField();
+		this.tfAlergias = new TextField();
 	}
 }

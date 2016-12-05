@@ -82,7 +82,7 @@ public class Login extends NerdCareViewBase {
 // 		p.setTelefone("0800 888");
 //		p.setIdade(18);
 //		p.setSexo('M');
-// 		
+ 		
 // 		u.setNome("Edye");
 // 		u.setEmail("Edye@mail.com");
 // 		u.setLogin("ed");
@@ -93,14 +93,14 @@ public class Login extends NerdCareViewBase {
 //      ------------------ // ---------------------
 // 		try {
 //			u = (Usuario) dao.findById(4, Usuario.class);
-//			p = (Paciente) dao.findById(4, Paciente.class);
+//			p = (Paciente) dao.findById(10, Paciente.class);
 //			d = (Doenca) dao.findById(1, Doenca.class);
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
 // 		listPacientes.add(p);
 // 		listDoencas.add(d);
-// 		
+ 		
 // 		p.setUsuario(u);
 // 		p.setDoencas(listDoencas);
 // 		u.setPacientes(listPacientes);

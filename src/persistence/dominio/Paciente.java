@@ -33,7 +33,8 @@ public class Paciente implements Serializable {
 	private int id;
 	
 	
-	@OneToMany(mappedBy="pacientes", fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@JoinColumn(name = "usuario")
 	private Usuario usuario;
 	
 	@ManyToMany

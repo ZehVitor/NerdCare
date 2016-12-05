@@ -40,8 +40,7 @@ public class Usuario implements Serializable {
 	private String login;
 	private String senha;
 	
-	@ManyToOne
-	@JoinColumn(name = "usuario")
+	@OneToMany(mappedBy="usuario")
 	private List<Paciente> pacientes;
 	
 	public Usuario(){
