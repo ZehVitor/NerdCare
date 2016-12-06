@@ -60,7 +60,7 @@ public class PesquisaController extends NerdCareViewBase {
 			
 			FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/Pesquisa.fxml"));
-            ScrollPane pageView = (ScrollPane) loader.load();
+            AnchorPane pageView = (AnchorPane) loader.load();
             root.setCenter(pageView);
 			
             PesquisaController.stage.show();
@@ -101,7 +101,7 @@ public class PesquisaController extends NerdCareViewBase {
 		GenericDAO dao = new GenericDAO();
 		List<Paciente> pacientes = new ArrayList<Paciente>();
 		try {
-			// Criar DAO específico e fazer consulta via Like %
+			// Criar DAO especï¿½fico e fazer consulta via Like %
 			pacientes = dao.findAll(Paciente.class);
 		} catch (Exception e1) {
 			e1.printStackTrace();

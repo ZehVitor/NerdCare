@@ -24,7 +24,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../css/rootStyle.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
+<VBox prefHeight="600.0" prefWidth="920.0" styleClass="background" stylesheets="@../css/rootStyle.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
   <children>
       <Text fill="#afdcee" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nerdCare" text="NerdCare" textAlignment="CENTER">
          <font>
@@ -34,7 +34,7 @@
             <Insets left="400.0" />
          </VBox.margin>
       </Text>
-    <SplitPane dividerPositions="0.1870824053452116" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="NEVER">
+    <SplitPane dividerPositions="0.1870824053452116" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" style="-fx-border-color: cyan;" VBox.vgrow="NEVER">
       <items>
         <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="164.0" styleClass="Vmenu" stylesheets="@../css/rootStyle.css" SplitPane.resizableWithParent="false">
           <children>
