@@ -36,7 +36,7 @@ public class MainController extends NerdCareViewBase {
             loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
             VBox pageView = (VBox) loader.load();
             root.setCenter(pageView);
-			
+			primaryStage.setResizable(false);
             listener();
             MainController.stage.show();
 		} catch(Exception e) {

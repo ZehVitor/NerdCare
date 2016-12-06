@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -17,78 +24,29 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
+<VBox prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../css/rootStyle.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
+      <Text fill="#afdcee" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nerdCare" text="NerdCare" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="400.0" />
+         </VBox.margin>
+      </Text>
     <SplitPane dividerPositions="0.1870824053452116" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="NEVER">
       <items>
-        <AnchorPane>
+        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="164.0" styleClass="Vmenu" stylesheets="@../css/rootStyle.css" SplitPane.resizableWithParent="false">
           <children>
-            <Label alignment="CENTER" layoutX="24.0" layoutY="5.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="NerdCare" textAlignment="CENTER" wrapText="false">
-              <font>
-                <Font name="System Bold" size="18.0" fx:id="x1" />
-              </font>
-            </Label>
-                  <VBox layoutX="8.0" layoutY="33.0">
+                  <VBox fx:id="Vmenu" layoutX="8.0" layoutY="33.0" spacing="7.0" styleClass="Vmenu">
                      <children>
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handleConsultar" prefHeight="26.0" prefWidth="149.0" text="Consultar Pacientes">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handleCadastrar" prefHeight="26.0" prefWidth="149.0" text="Cadastrar Paciente">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Pacientes do dia">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
+                        <ToggleButton mnemonicParsing="false" onAction="#handleConsultar" prefWidth="149.0" text="Pesquisar Paciente" />
+                        <ToggleButton mnemonicParsing="false" onAction="#handleCadastrar" prefWidth="149.0" text="Cadastrar Paciente" />
                      </children>
                   </VBox>
           </children>
         </AnchorPane>
-        <ScrollPane fx:id="scrollPane" prefHeight="662.0" prefWidth="726.0" />
+        <ScrollPane id="scrollPane" fx:id="scrollPane" prefHeight="662.0" prefWidth="726.0" styleClass="scrollPane" stylesheets="@../css/rootStyle.css" />
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">

@@ -56,22 +56,22 @@ public class Login extends NerdCareViewBase {
 	private void initComponents() {
 		WIDTH = 400;
 		FAREWELL_MESSAGE = "Bye!";
-		FAILED_LOGIN_MESSAGE = "Login ou Senha inválidos!";
+		FAILED_LOGIN_MESSAGE = "Login ou Senha invï¿½lidos!";
 		
 		persistence.dominio.Banco.getInstance();
 		
-//		------------------------------------Inserts para Criação do banco--------------------------
-//		Usuario u = new Usuario();
-//		Paciente p = new Paciente();
-//		Doenca d = new Doenca();
-// 		GenericDAO dao = new GenericDAO();
-// 		List<Paciente> listPacientes = new ArrayList<Paciente>();
-// 		List<Doenca> listDoencas = new ArrayList<Doenca>();
- 		
-// 		d.setNome("Dengue");
-// 		d.setSintomas("febre; dor de cabeça; dor no corpo");
+//		------------------------------------Inserts para Criaï¿½ï¿½o do banco--------------------------
+		Usuario u = new Usuario();
+		Paciente p = new Paciente();
+		Doenca d = new Doenca();
+ 		GenericDAO dao = new GenericDAO();
+ 		List<Paciente> listPacientes = new ArrayList<Paciente>();
+ 		List<Doenca> listDoencas = new ArrayList<Doenca>();
 // 		
-// 		p.setNome("Paciente Primario");
+//		d.setNome("Dengue");
+// 		d.setSintomas("febre; dor de cabeï¿½a; dor no corpo");
+// 		
+//		p.setNome("Paciente Primario");
 // 		p.setAlergias("Lactose");
 // 		p.setAltura(100);
 // 		p.setEndereco("Rua teste");
@@ -83,7 +83,7 @@ public class Login extends NerdCareViewBase {
 //		p.setIdade(18);
 //		p.setSexo('M');
  		
-// 		u.setNome("Edye");
+//		u.setNome("Edye");
 // 		u.setEmail("Edye@mail.com");
 // 		u.setLogin("ed");
 // 		u.setSenha("123");
@@ -92,15 +92,15 @@ public class Login extends NerdCareViewBase {
 // 		dao.inserir(d);
 //      ------------------ // ---------------------
 // 		try {
-//			u = (Usuario) dao.findById(4, Usuario.class);
-//			p = (Paciente) dao.findById(10, Paciente.class);
+//			u = (Usuario) dao.findById(8, Usuario.class);
+//			p = (Paciente) dao.findById(1, Paciente.class);
 //			d = (Doenca) dao.findById(1, Doenca.class);
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
 // 		listPacientes.add(p);
 // 		listDoencas.add(d);
- 		
+//	
 // 		p.setUsuario(u);
 // 		p.setDoencas(listDoencas);
 // 		u.setPacientes(listPacientes);

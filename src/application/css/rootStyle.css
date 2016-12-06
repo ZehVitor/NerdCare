@@ -6,7 +6,13 @@
     /*-fx-font-size: 12pt;
     -fx-font-family: "Segoe UI Semibold";*/
     -fx-text-fill: white;
+    -fx-font-weight: bold;
     /*-fx-opacity: 1;*/
+}
+
+.tab-pane *.tab-header-background {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, derive(-fx-color, -20%);
+    -fx-effect: innershadow(two-pass-box , rgba(0,0,0,0.6) , 4, 0.0 , 0 , 0);
 }
 
 .scrollPane > .viewport {
@@ -14,13 +20,18 @@
 	-fx-control-inner-background: transparent;
 }
 
-/*.nerdCare {
+.nerdCare {
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: white;
     -fx-opacity: 1;
     -fx-background-color: red;
-}*/
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    /*-fx-font-weight: normal;*/
+}
 
 .Vmenu, .toggle-button{
 	
@@ -34,6 +45,33 @@
 .Vmenu, .toggle-button:hover {
     -fx-background-color: #3a3a3a;
     -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+    -fx-text-fill: white;
+}
+
+.button:selected:focused {
+    /*-fx-border-color: white, white;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);*/
+    -fx-background-color: #eee5e9;
+    -fx-text-fill: black;
+    /*-fx-border-radius: 0, 3;
+    -fx-border-insets: 1 1 1 1, 0;*/
+}
+
+.button:default {
+	-fx-background-color: #7c7c7c;
+    -fx-text-fill: black;
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.toggle-button:pressed, .toggle-button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
 }
 
 .toggle-button:pressed, .toggle-button:default:hover:pressed {
@@ -51,11 +89,20 @@
     -fx-border-insets: 1 1 1 1, 0;
 }
 
-/*.button:disabled, .button:default:disabled {
+.button{
+	
+    -fx-border-style: none;
+    -fx-border-radius: 6;
+    -fx-background-color: #7c7c7c;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+button:disabled, .button:default:disabled {
     -fx-opacity: 0.4;
     -fx-background-color: #1d1d1d;
     -fx-text-fill: white;
-}*/
+}
 
 .toggle-button:default {
 	-fx-background-color: #eee5e9;
