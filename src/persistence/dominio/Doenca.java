@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.common.reflection.java.generics.TypeEnvironmentFactory;
+
 @Entity
 @Table(name="Doenca")
 public class Doenca implements Serializable {
@@ -58,5 +60,21 @@ public class Doenca implements Serializable {
 	}
 	public void setPacientes(List<Paciente> pacientes) {
 		this.pacientes = pacientes;
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if (!(obj instanceof Doenca)) {
+			return false;
+		}
+		
+		Doenca temp = (Doenca) obj;
+		if (temp.getNome().equals(this.getNome()) &&
+			temp.getSintomas().equals(this.getSintomas()) &&
+			temp.getPacientes().equals(this.getPacientes())) {
+			return true;
+		}
+		
+		return false;
 	}
 }

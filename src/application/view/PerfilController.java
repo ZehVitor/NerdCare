@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import persistence.dominio.Doenca;
 import persistence.dominio.Paciente;
 
 public class PerfilController extends NerdCareViewBase {
@@ -25,6 +26,22 @@ public class PerfilController extends NerdCareViewBase {
 	private Label lbIdade;
 	@FXML
 	private Label lbSexo;
+	@FXML
+	private Label lbMail;
+	@FXML
+	private Label lbAltura;
+	@FXML
+	private Label lbPeso;
+	@FXML
+	private Label lbFumante;
+	@FXML
+	private Label lbPressaoSanguinea;
+	@FXML
+	private Label lbHistoricoFamiliar;
+	@FXML
+	private Label lbDoencas;
+	@FXML
+	private Label lbAlergias;
 	@FXML
 	private ImageView fotoUrl;
 	
@@ -56,6 +73,20 @@ public class PerfilController extends NerdCareViewBase {
 			this.lbNome.setText(pacienteSelecionado.getNome());
 			this.lbIdade.setText(String.valueOf(pacienteSelecionado.getIdade()));
 			this.lbSexo.setText(pacienteSelecionado.getSexo() == 'M' ? "Masculino" : "Feminino");
+			this.lbMail.setText(pacienteSelecionado.getEmail());
+			this.lbAltura.setText(String.valueOf(pacienteSelecionado.getAltura()));
+			this.lbPeso.setText(String.valueOf(pacienteSelecionado.getPeso()));
+			this.lbFumante.setText(pacienteSelecionado.isFumante() ? "Sim" : "Não");
+			this.lbPressaoSanguinea.setText(String.valueOf(pacienteSelecionado.getPressaoSanguinea()));
+			this.lbHistoricoFamiliar.setText(pacienteSelecionado.getHistoricoFamiliar());
+			this.lbAlergias.setText(pacienteSelecionado.getAlergias());
+			StringBuilder sb = new StringBuilder();
+			for (Doenca doenca : pacienteSelecionado.getDoencas()) {
+				sb.append(doenca.getNome());
+				sb.append("; ");
+			}
+			
+			this.lbDoencas.setText(sb.toString());
 			if (pacienteSelecionado.getFotoUrl() == null || pacienteSelecionado.getFotoUrl().isEmpty()) {
 				this.fotoUrl.setImage(new Image("/resource/images/sem_foto.png"));
 			}

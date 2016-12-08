@@ -12,12 +12,8 @@ public class Banco {
 
 	public static EntityManager getInstance(){
 		if (em == null) {
-			Properties prop = new Properties();
-			prop.setProperty( "javax.persiscente.sharedCache.mode", 
-					"ENABLE_SELECTIVE");
-
 			EntityManagerFactory emf =
-					Persistence.createEntityManagerFactory("NerdCare", prop);
+					Persistence.createEntityManagerFactory("NerdCare");
 			em = emf.createEntityManager();
 		}
 		

@@ -113,7 +113,7 @@ public class GenericDAO {
 		return lista;
 	}
 	
-	private EntityManager getEntityManager(){
+	protected EntityManager getEntityManager(){
 		return Banco.getInstance();
 	}
 	

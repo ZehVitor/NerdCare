@@ -23,8 +23,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import persistence.dao.DoencaDAO;
 import persistence.dao.GenericDAO;
 import persistence.dominio.Banco;
+import persistence.dominio.Doenca;
 import persistence.dominio.Paciente;
 import javafx.stage.FileChooser.ExtensionFilter;
 
@@ -32,6 +34,7 @@ public class CadastroController extends NerdCareViewBase {
 	
 	private static Stage stage;
 	private Paciente pacienteAtual = new Paciente();
+	private List<Doenca> doencasSelecionadas = new ArrayList<Doenca>();
 	@FXML
 	private ImageView imageFoto;
 	@FXML
@@ -57,6 +60,8 @@ public class CadastroController extends NerdCareViewBase {
 	private TextField tfHistoricoFamiliar;
 	@FXML
 	private TextField tfAlergias;
+	@FXML
+	private TextField tfDoenca;
 	private BorderPane root = new BorderPane();
 	
 	@Override
@@ -110,6 +115,7 @@ public class CadastroController extends NerdCareViewBase {
 		}
 		
 		GenericDAO dao = new GenericDAO();
+		DoencaDAO doencaDao = new DoencaDAO();
 		this.pacienteAtual.setNome(this.tfNome.getText());
 		this.pacienteAtual.setIdade(Integer.parseInt(this.tfIdade.getText()));
 		this.pacienteAtual.setEmail(this.tfEmail.getText());
@@ -126,6 +132,11 @@ public class CadastroController extends NerdCareViewBase {
 		listP.add(this.pacienteAtual);
 		this.pacienteAtual.setUsuario(Banco.getCurrentUser());
 		this.pacienteAtual.setFotoUrl(this.imageFoto.getImage().impl_getUrl());
+		this.pacienteAtual.setDoencas(this.doencasSelecionadas);
+		
+		for (Doenca doenca : this.doencasSelecionadas) {
+			doencaDao.InserUpdateDoencaByName(doenca);	
+		}
 		
 		dao.inserir(this.pacienteAtual);
 		JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
@@ -135,11 +146,36 @@ public class CadastroController extends NerdCareViewBase {
 	@FXML
 	public void handleAdcionarAlergia(){
 		this.pacienteAtual.setAlergias(this.tfAlergias.getText());
+		JOptionPane.showMessageDialog(null, "Alergia adicionada com sucesso!");
+		this.tfAlergias.setText("");
 	}
 	
 	@FXML
 	public void handleDoencaCronica(){
+		List<String> doencasAdd = this.validaDoencas();
+		if (doencasAdd.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Já adicionado!");
+			return;
+		}
 		
+		StringBuilder doencasManipuladas = new StringBuilder();
+		for (String doenca : doencasAdd) {
+			Doenca d = new Doenca();
+			d.setNome(doenca);
+			d.setSintomas("Sintomas de " + doenca);
+			
+			this.doencasSelecionadas.add(d);
+			doencasManipuladas.append(doenca);
+			doencasManipuladas.append("");
+		}
+		
+		StringBuilder todasDoencas = new StringBuilder();
+		for (Doenca dc : this.doencasSelecionadas) {
+			todasDoencas.append(dc.getNome() + ";");
+		}
+		
+		this.tfDoenca.setText(todasDoencas.toString());
+		JOptionPane.showMessageDialog(null, "Adicionados: " + doencasManipuladas.toString());
 	}
 	
 	private boolean validaCampos(){
@@ -182,17 +218,49 @@ public class CadastroController extends NerdCareViewBase {
 		return true;
 	}
 	
+	private List<String> validaDoencas(){
+		List<String> retorno = new ArrayList<String>();
+		if (this.tfDoenca.getText().isEmpty()) {
+			return retorno;
+		}
+		
+		String[] nomeDoencas = this.tfDoenca.getText().split(";");
+		for (String arrayDoencas : nomeDoencas) {
+			if (this.doencasSelecionadas.isEmpty()) {
+				retorno.add(arrayDoencas);
+				continue;
+			}
+			
+			boolean canAdd = true;
+			for (Doenca nDoenca : this.doencasSelecionadas) {
+				Doenca temp = new Doenca();
+				temp.setNome(arrayDoencas);
+				temp.setSintomas("Sintomas de " +arrayDoencas);
+				
+				if (nDoenca.equals(temp)) {
+					canAdd = false;
+					break;
+				}
+			}
+			
+			if (canAdd) {
+				retorno.add(arrayDoencas);	
+			}
+		}
+		
+		return retorno;
+	}
+	
 	private void reset(){
-		this.imageFoto = new ImageView();
-		this.tfNome = new TextField();
-		this.tfIdade = new TextField();
-		this.tfEmail = new TextField();
-		this.tfSexo = new TextField();
-		this.tfAltura = new TextField();
-		this.radioFumanteSim = new RadioButton();
-		this.radioFumanteNao = new RadioButton();
-		this.tfPressaoSanguinea = new TextField();
-		this.tfHistoricoFamiliar = new TextField();
-		this.tfAlergias = new TextField();
+		this.tfNome.setText("");
+		this.tfIdade.setText("");
+		this.tfEmail.setText("");
+		this.tfSexo.setText("");
+		this.tfAltura.setText("");
+		this.radioFumanteSim.setText("");
+		this.radioFumanteNao.setText("");
+		this.tfPressaoSanguinea.setText("");
+		this.tfHistoricoFamiliar.setText("");
+		this.tfAlergias.setText("");
 	}
 }
